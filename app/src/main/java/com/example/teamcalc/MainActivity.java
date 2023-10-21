@@ -1,10 +1,11 @@
 package com.example.teamcalc;
 
-import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 import java.text.DecimalFormat;
 import java.util.ArrayList;
@@ -128,8 +129,40 @@ public class MainActivity extends AppCompatActivity{
                 break;
         }
 
+
         String original = "√" + number;
         String changed = "Math.sqrt(" + number + ")";
+        tempFormula = tempFormula.replace(original,changed);
+    }
+    private void changeSin(Integer index){
+        String number = "";
+
+        for(int i=index + 1; i<equation.length();i++){
+            if(isNumeric(equation.charAt(i)))
+                number = number + equation.charAt(i);
+            else
+                break;
+        }
+
+        String original = "sin" + number;
+        double degrees = Math.toRadians(Double.parseDouble(number));
+        String changed = "Math.sin(" + degrees + ")";
+        tempFormula = tempFormula.replace(original,changed);
+    }
+
+    private void changeCos(Integer index){
+        String number = "";
+
+        for(int i=index + 3; i<equation.length();i++){
+            if(isNumeric(equation.charAt(i)))
+                number = number + equation.charAt(i);
+            else
+                break;
+        }
+
+        String original = "cos" + number;
+        double degrees = Math.toRadians(Double.parseDouble(number));
+        String changed = "Math.cos(" + degrees + ")";
         tempFormula = tempFormula.replace(original,changed);
     }
 
@@ -137,10 +170,81 @@ public class MainActivity extends AppCompatActivity{
         return (c <= '9' && c >= '0') || c == '.';
     }
 
+    public void clearOnClick(View view){
+        equation="";
+        tvEquation.setText("0");
+        tvResult.setText("");
+    }
+
     public void delOnClick(View view){
         if(equation!=null && (equation.length() > 0))
             equation = equation.substring(0, equation.length() - 1);
         tvEquation.setText(equation);
+    }
+
+    public void zeroOnClick(View view){
+        setEquation("0");
+    }
+
+    public void oneOnClick(View view){
+        setEquation("1");
+    }
+
+    public void twoOnClick(View view){
+        setEquation("2");
+    }
+
+    public void threeOnClick(View view){
+        setEquation("3");
+    }
+
+    public void fourOnClick(View view){
+        setEquation("4");
+    }
+
+    public void fiveOnClick(View view){
+        setEquation("5");
+    }
+
+    public void sixOnClick(View view){
+        setEquation("6");
+    }
+
+    public void sevenOnClick(View view){
+        setEquation("7");
+    }
+
+    public void eightOnClick(View view){
+        setEquation("8");
+    }
+
+    public void nineOnClick(View view){
+        setEquation("9");
+    }
+
+    public void plusOnClick(View view){
+        if(equation.length() > 0)
+            setEquation("+");
+    }
+
+    public void minusOnClick(View view){
+        if(equation.length() > 0)
+            setEquation("-");
+    }
+
+    public void multOnClick(View view){
+        if(equation.length() > 0)
+            setEquation("*");
+    }
+
+    public void divOnClick(View view){
+        if(equation.length() > 0)
+            setEquation("/");
+    }
+
+    public void modOnClick(View view){
+        if(equation.length() > 0)
+            setEquation("%");
     }
 
     public void commaOnClick(View view){
