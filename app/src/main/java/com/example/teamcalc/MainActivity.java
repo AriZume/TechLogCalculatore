@@ -9,6 +9,9 @@ import android.widget.Toast;
 import java.text.DecimalFormat;
 import java.util.ArrayList;
 
+import javax.script.ScriptEngine;
+import javax.script.ScriptEngineManager;
+
 public class MainActivity extends AppCompatActivity{
     TextView tvResult,tvEquation;
     String equation = "";
