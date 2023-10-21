@@ -10,9 +10,5 @@ public class MainActivity extends AppCompatActivity{
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        ena dio tria
-        rfehrthtr
-                aaaaaaaaaaaaaaaaaaaaaaaaaa
-                         eimai o stelios testf
     }
 }
