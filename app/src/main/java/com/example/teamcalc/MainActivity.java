@@ -52,7 +52,7 @@ public class MainActivity extends AppCompatActivity{
             }
 
             if (result != null)
-                tvResult.setText(String.valueOf(result.doubleValue()));
+                tvResult.setText(str);
         }
     }
 
