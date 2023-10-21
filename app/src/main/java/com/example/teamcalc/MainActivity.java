@@ -75,6 +75,7 @@ public class MainActivity extends AppCompatActivity{
         formula = equation;
         tempFormula = equation;
 
+
         for(Integer index: indexOfPowers){
             changePower(index);
         }
@@ -94,8 +95,73 @@ public class MainActivity extends AppCompatActivity{
         formula = tempFormula;
     }
 
+    private void changePower(Integer index){
+        String numberLeft = "";
+        String numberRight = "";
 
+        for(int i = index + 1; i< equation.length(); i++){
+            if(isNumeric(equation.charAt(i)))
+                numberRight = numberRight + equation.charAt(i);
+            else
+                break;
+        }
 
+        for(int i = index - 1; i >= 0; i--){
+            if(isNumeric(equation.charAt(i)))
+                numberLeft = numberLeft + equation.charAt(i);
+            else
+                break;
+        }
 
+        String original = numberLeft + "^" + numberRight;
+        String changed = "Math.pow("+numberLeft+","+numberRight+")";
+        tempFormula = tempFormula.replace(original,changed);
+    }
 
+    private void changeSqrt(Integer index){
+        String number = "";
+
+        for(int i=index + 1; i<equation.length();i++){
+            if(isNumeric(equation.charAt(i)))
+                number = number + equation.charAt(i);
+            else
+                break;
+        }
+
+        String original = "√" + number;
+        String changed = "Math.sqrt(" + number + ")";
+        tempFormula = tempFormula.replace(original,changed);
+    }
+
+    private boolean isNumeric(char c){
+        return (c <= '9' && c >= '0') || c == '.';
+    }
+
+    public void delOnClick(View view){
+        if(equation!=null && (equation.length() > 0))
+            equation = equation.substring(0, equation.length() - 1);
+        tvEquation.setText(equation);
+    }
+
+    public void commaOnClick(View view){
+        if(equation.length() > 0)
+            setEquation(".");
+    }
+
+    public void parOpenOnClick(View view){
+        setEquation("(");
+    }
+
+    public void parCloseOnClick(View view){
+        setEquation(")");
+    }
+
+    public void powerOfOnClick(View view) {
+        if(equation.length() > 0)
+            setEquation("^");
+    }
+
+    public void sqrtOnClick(View view){
+        setEquation("√");
+    }
 }
