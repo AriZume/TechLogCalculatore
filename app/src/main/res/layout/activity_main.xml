@@ -115,7 +115,6 @@
                 android:onClick="modOnClick"
                 app:icon="@null" />
 
-
         </LinearLayout>
 
         <LinearLayout
