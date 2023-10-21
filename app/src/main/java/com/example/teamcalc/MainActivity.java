@@ -265,6 +265,14 @@ public class MainActivity extends AppCompatActivity{
             setEquation("^");
     }
 
+    public void sinOnClick(View view){
+        setEquation("sin");
+    }
+
+    public void cosOnClick(View view){
+        setEquation("cos");
+    }
+
     public void sqrtOnClick(View view){
         setEquation("√");
     }
