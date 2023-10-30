@@ -7,11 +7,11 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import java.util.ArrayList;
+
 import javax.script.ScriptEngine;
 import javax.script.ScriptEngineManager;
 import javax.script.ScriptException;
-
-
 
 public class MainActivity extends AppCompatActivity{
     TextView tvResult,tvEquation;
@@ -49,8 +49,8 @@ public class MainActivity extends AppCompatActivity{
         }
     }
 
-    public void zeroOnClick(View view){
-        setEquation("0");
+    private boolean isNumeric(char c){
+        return (c <= '9' && c >= '0') || c == '.';
     }
 
     public void commaOnClick(View view){
@@ -58,4 +58,103 @@ public class MainActivity extends AppCompatActivity{
             setEquation(".");
     }
 
+    public void zeroOnClick(View view){
+        setEquation("0");
+    }
+
+    public void fourOnClick(View view){
+        setEquation("4");
+    }
+
+    public void fiveOnClick(View view){
+        setEquation("5");
+    }
+
+    public void sixOnClick(View view){
+        setEquation("6");
+    }
+  
+    public void minusOnClick(View view){
+        if(equation.length() > 0)
+            setEquation("-");
+    }
+
+    private void checkForScientific() {
+        ArrayList<Integer> indexOfPowers = new ArrayList<>();
+        ArrayList<Integer> indexOfSin = new ArrayList<>();
+        ArrayList<Integer> indexOfCos = new ArrayList<>();
+        ArrayList<Integer> indexOfSqrt = new ArrayList<>();
+
+        for(int i = 0; i < equation.length(); i++){
+            if (equation.charAt(i) == '^')
+                indexOfPowers.add(i);
+            else if (equation.charAt(i) =='n')
+                indexOfSin.add(i);
+            else if (equation.charAt(i) == 'c')
+                indexOfCos.add(i);
+            else if (equation.charAt(i) == '√')
+                indexOfSqrt.add(i);
+        }
+
+        formula = equation;
+        tempFormula = equation;
+
+        for(Integer index: indexOfPowers){
+            changePower(index);
+        }
+
+        for(Integer index: indexOfSin){
+            changeSin(index);
+        }
+
+        for(Integer index: indexOfCos){
+            changeCos(index);
+        }
+
+        for(Integer index: indexOfSqrt){
+            changeSqrt(index);
+        }
+
+        formula = tempFormula;
+    }
+  
+    private void changeSqrt(Integer index){
+        String number = "";
+
+        for(int i=index + 1; i<equation.length();i++){
+            if(isNumeric(equation.charAt(i)))
+                number = number + equation.charAt(i);
+            else
+                break;
+        }
+
+        String original = "√" + number;
+        String changed = "Math.sqrt(" + number + ")";
+        tempFormula = tempFormula.replace(original,changed);
+    }
+    public void clearOnClick(View view){
+        equation="";
+        tvEquation.setText("0");
+        tvResult.setText("");
+    }
+
+    public void delOnClick(View view){
+        if(equation!=null && (equation.length() > 0))
+            equation = equation.substring(0, equation.length() - 1);
+        tvEquation.setText(equation);
+    }
+
+    public void powerOfOnClick(View view) {
+        if(equation.length() > 0)
+            setEquation("^");
+    }
+
+    public void sqrtOnClick(View view){
+        setEquation("√");
+    }
+
+    public void modOnClick(View view){
+        if(equation.length() > 0)
+            setEquation("%");
+    }
 }
