@@ -14,6 +14,7 @@ public class MainActivity extends AppCompatActivity{
         setEquation("7");
     }
 
+
     public void eightOnClick(View view){
         setEquation("8");
     }
