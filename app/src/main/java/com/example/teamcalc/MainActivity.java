@@ -111,13 +111,36 @@ public class MainActivity extends AppCompatActivity{
             changeCos(index);
         }
 
+
         for(Integer index: indexOfSqrt){
             changeSqrt(index);
         }
 
         formula = tempFormula;
     }
-  
+    private void changePower(Integer index){
+        String numberLeft = "";
+        String numberRight = "";
+
+        for(int i = index + 1; i< equation.length(); i++){
+            if(isNumeric(equation.charAt(i)))
+                numberRight = numberRight + equation.charAt(i);
+            else
+                break;
+        }
+
+        for(int i = index - 1; i >= 0; i--){
+            if(isNumeric(equation.charAt(i)))
+                numberLeft = numberLeft + equation.charAt(i);
+            else
+                break;
+        }
+
+        String original = numberLeft + "^" + numberRight;
+        String changed = "Math.pow("+numberLeft+","+numberRight+")";
+        tempFormula = tempFormula.replace(original,changed);
+    }
+    }
     private void changeSqrt(Integer index){
         String number = "";
 
