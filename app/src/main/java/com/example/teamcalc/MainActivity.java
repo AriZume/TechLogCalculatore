@@ -181,6 +181,18 @@ public class MainActivity extends AppCompatActivity{
             setEquation("%");
     }
 
+    public void oneOnClick(View view){
+        setEquation("1");
+    }
+
+    public void twoOnClick(View view){
+        setEquation("2");
+    }
+
+    public void threeOnClick(View view){
+        setEquation("3");
+    }
+
     public void sevenOnClick(View view){
         setEquation("7");
     }
@@ -193,6 +205,11 @@ public class MainActivity extends AppCompatActivity{
 
     public void nineOnClick(View view){
         setEquation("9");
+    }
+
+    public void plusOnClick(View view){
+        if(equation.length() > 0)
+            setEquation("+");
     }
 
     public void multOnClick(View view){
