@@ -16,6 +16,7 @@
         android:orientation="vertical"
         android:layout_weight="3">
 
+
         <TextView
             android:id="@+id/tvEquation"
             android:layout_width="wrap_content"
