@@ -180,4 +180,23 @@ public class MainActivity extends AppCompatActivity{
         if(equation.length() > 0)
             setEquation("%");
     }
+
+    public void sevenOnClick(View view){
+        setEquation("7");
+    }
+
+
+    public void eightOnClick(View view){
+        setEquation("8");
+    }
+
+
+    public void nineOnClick(View view){
+        setEquation("9");
+    }
+
+    public void multOnClick(View view){
+        if(equation.length() > 0)
+            setEquation("*");
+    }
 }
