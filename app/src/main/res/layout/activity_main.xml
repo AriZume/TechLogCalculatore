@@ -10,60 +10,20 @@
     tools:context=".MainActivity"
     android:background="@color/white">
 
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:orientation="vertical"
+        android:layout_weight="3">
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="1">
+    </LinearLayout>
 
-            <Button
-                android:id="@+id/btn7"
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:backgroundTint="@android:color/transparent"
-                android:text="7"
-                android:textColor="@color/black"
-                android:textSize="25sp"
-                android:onClick="sevenOnClick"
-                app:icon="@null" />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:orientation="vertical"
+        android:layout_weight="7">
 
-            <Button
-                android:id="@+id/btn8"
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:backgroundTint="@android:color/transparent"
-                android:text="8"
-                android:textColor="@color/black"
-                android:textSize="25sp"
-                android:onClick="eightOnClick"
-                app:icon="@null" />
-
-            <Button
-                android:id="@+id/btn9"
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:backgroundTint="@android:color/transparent"
-                android:text="9"
-                android:textColor="@color/black"
-                android:textSize="25sp"
-                android:onClick="nineOnClick"
-                app:icon="@null" />
-
-            <Button
-                android:id="@+id/btnMult"
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:backgroundTint="@android:color/transparent"
-                android:text="x"
-                android:textColor="#FFA018"
-                android:textSize="25sp"
-                android:onClick="multOnClick"
-                app:icon="@null" />
-        </LinearLayout>
-
+    </LinearLayout>
 </LinearLayout>
 
