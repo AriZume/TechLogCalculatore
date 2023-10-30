@@ -140,7 +140,7 @@ public class MainActivity extends AppCompatActivity{
         String changed = "Math.pow("+numberLeft+","+numberRight+")";
         tempFormula = tempFormula.replace(original,changed);
     }
-    }
+    
     private void changeSqrt(Integer index){
         String number = "";
 
